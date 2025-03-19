@@ -18,6 +18,128 @@
                         "description": "List of cars"
                     }
                 }
+            },
+            "post": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Create a new car",
+                "operationId": "6f519ab2c9767d4d3b1be7cf8f1287ed",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "brand",
+                                    "model",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "brand": {
+                                        "type": "string",
+                                        "example": "Toyota"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "Corolla"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": 25000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Car created successfully"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/cars/{id}": {
+            "put": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Update a car",
+                "operationId": "1d232cedb5f39024dccd947cddd10087",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "brand": {
+                                        "type": "string",
+                                        "example": "Ford"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "example": "Focus"
+                                    },
+                                    "price": {
+                                        "type": "number",
+                                        "example": 28000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Car updated successfully"
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Delete a car",
+                "operationId": "802b64f09e484fbb1bb3817362d30cc9",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Car deleted successfully"
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    }
+                }
             }
         }
     },
