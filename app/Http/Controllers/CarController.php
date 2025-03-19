@@ -104,7 +104,18 @@ class CarController extends Controller
      *         description="Car not found",
      *     )
      * )
-     */
+     * 
+     *  * @OA\Schema(
+ *     schema="Car",
+ *     type="object",
+ *     required={"brand", "model", "price"},
+ *     @OA\Property(property="id", type="integer", example=1),
+ *     @OA\Property(property="brand", type="string", example="Toyota"),
+ *     @OA\Property(property="model", type="string", example="Corolla"),
+ *     @OA\Property(property="price", type="number", example=25000),
+ * )
+ */
+     
 
     public function show($id)
     {
@@ -149,6 +160,9 @@ class CarController extends Controller
      *     )
      * )
      */
+
+
+     
   
     public function update(Request $request, $id)
     {
@@ -171,7 +185,7 @@ class CarController extends Controller
     }
 
 
- /**
+    /**
      * @OA\Delete(
      *     path="/api/cars/{id}",
      *     summary="Delete a car",

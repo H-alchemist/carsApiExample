@@ -65,6 +65,39 @@
             }
         },
         "/api/cars/{id}": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get a specific car",
+                "operationId": "b222bfa902eefbb6a4a875762081dcbc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Car ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Car details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Car"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Car not found"
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "Cars"
@@ -140,6 +173,36 @@
                         "description": "Car not found"
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Car": {
+                "required": [
+                    "brand",
+                    "model",
+                    "price"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "brand": {
+                        "type": "string",
+                        "example": "Toyota"
+                    },
+                    "model": {
+                        "type": "string",
+                        "example": "Corolla"
+                    },
+                    "price": {
+                        "type": "number",
+                        "example": 25000
+                    }
+                },
+                "type": "object"
             }
         }
     },
