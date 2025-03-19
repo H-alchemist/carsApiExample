@@ -1,0 +1,30 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Car API",
+        "description": "Car management API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/cars": {
+            "get": {
+                "tags": [
+                    "Cars"
+                ],
+                "summary": "Get all cars",
+                "operationId": "1fd4f1fdc0da258c5084bcdce4bbe693",
+                "responses": {
+                    "200": {
+                        "description": "List of cars"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Cars",
+            "description": "Operations related to cars"
+        }
+    ]
+}
